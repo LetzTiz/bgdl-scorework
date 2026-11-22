@@ -21,11 +21,11 @@ const CONFIG = {
     { id: 'gold', name: 'Gold League', tab: 'Schedule Gold',
       zones: [
         { from: 'top',    count: 2, kind: 'prize', label: 'Prize' },
-        { from: 'bottom', count: 2, kind: 'down',  label: 'Relegated to Silver League' },
+        { from: 'bottom', count: 3, kind: 'down',  label: 'Relegated to Silver League' },
       ] },
     { id: 'silver', name: 'Silver League', tab: 'Schedule Silver',
       zones: [
-        { from: 'top', count: 2, kind: 'up', label: 'Promoted to Gold League' },
+        { from: 'top', count: 3, kind: 'up', label: 'Promoted to Gold League' },
       ] },
   ],
 
