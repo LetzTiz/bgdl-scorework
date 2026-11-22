@@ -11,14 +11,14 @@ const CONFIG = {
   sheetUrl: 'https://docs.google.com/spreadsheets/d/1H9UdxPvqrMS4PJN4SuOL_vHmykWcI0OvF8t0Jd6uZXI/edit?usp=sharing',
 
   // Tabs in the sheet
-  teamsTab:  'Teams',   // # | Team name | Manager / Captain | Logo | ... | (optional) Logo URL
+  teamsTab:  'Teams',   // # | Team name | Manager / Captain | Logo (which still needs to be imported in this sheet cause Google Sheets is a bitch) | ... 
   rosterTab: 'Roster',  // Team | Slot | Player | Country | Hardest | Price (orbs) | Bought on
 
   // One schedule tab per division.
   // Columns: No. | Match day | Date | Team A | Team B | Level 1 | Level 2 | Points A | Points B | Winner | Played
   // A match is finished when "Played" is 1. Points filled in while "Played" is still 0 = live.
   divisions: [
-    { id: 'gold', name: 'Gold League', tab: 'Schedule',
+    { id: 'gold', name: 'Gold League', tab: 'Schedule Gold',
       zones: [
         { from: 'top',    count: 2, kind: 'prize', label: 'Prize' },
         { from: 'bottom', count: 2, kind: 'down',  label: 'Relegated to Silver League' },
