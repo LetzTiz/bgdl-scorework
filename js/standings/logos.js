@@ -16,8 +16,10 @@ function imgUrl(v) {
   return u;
 }
 
-// "Requiem Aeternam" -> "requiem-aeternam"; dots become dashes ("S.A.Y.O" -> "s-a-y-o")
-const slug = n => String(n).toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+// "Requiem Aeternam" -> "requiem-aeternam"; apostrophes are dropped ("Classical VIP's" -> "classical-vips"),
+// dots become dashes ("S.A.Y.O" -> "s-a-y-o")
+const slug = n => String(n).toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g, '').replace(/['’`´]/g, '')
+  .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 // File names to try for a team: with dots as dashes and with dots left out ("s-a-y-o-kings", "sayo-kings")
 function logoFiles(name) {
