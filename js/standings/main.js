@@ -48,11 +48,7 @@ function draw() {
 
 // Load all tabs from the sheet
 async function load() {
-  if (!SHEET) {
-    DATA = DEMO;
-    $('#notice').innerHTML = '<p class="note">These are example results. Add the sheet link in config.js to show the real league.</p>';
-    $('#updated').textContent = 'Example data'; draw(); return;
-  }
+
   const div = {}; let anyOk = false, firstErr = '';
   for (const d of DIVS) {
     try { div[d.id] = { matches: parseMatches(await loadTabRows(SHEET, d.tab)) }; anyOk = true; }
