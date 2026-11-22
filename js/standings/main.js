@@ -4,7 +4,6 @@
 
 $('#league').textContent = CONFIG.league;
 $('#season').textContent = CONFIG.season;
-$('#foot').textContent   = `${CONFIG.league} — ${CONFIG.season}`;
 document.title = CONFIG.league + ' – Standings';
 
 // "Count live matches" is remembered per browser
