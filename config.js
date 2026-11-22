@@ -20,7 +20,7 @@ const CONFIG = {
   divisions: [
     { id: 'gold', name: 'Gold League', tab: 'Schedule Gold',
       zones: [
-        { from: 'top',    count: 2, kind: 'prize', label: 'Prize' },
+        { from: 'top',    count: 1, kind: 'prize', label: 'Prize' },
         { from: 'bottom', count: 3, kind: 'down',  label: 'Relegated to Silver League' },
       ] },
     { id: 'silver', name: 'Silver League', tab: 'Schedule Silver',
