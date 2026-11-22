@@ -1,0 +1,54 @@
+/* ==========================================================================
+   Standings – colours, fonts and shared building blocks
+   ========================================================================== */
+
+:root {
+  --void: #010a13; --navy: #0a1428; --navy2: #0f1d36; --line: #1e2d45;
+  --gold: #c8aa6e; --gold2: #f0e6d2; --gold3: #785a28; --bright: #f5cf3a;
+  --teal: #0ac8b9; --teal2: #0397ab; --red: #e84057; --mut: #a09b8c; --txt: #f0e6d2;
+  --disp: 'Cinzel', 'Times New Roman', serif;
+  --cond: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --body: 'Barlow', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0 }
+[hidden] { display: none !important }
+html { background: var(--void) }
+body {
+  min-height: 100vh; color: var(--txt); font: 500 16px/1.5 var(--body);
+  background:
+    radial-gradient(ellipse 70% 40% at 50% 0%, rgba(200,170,110,.05), transparent 70%),
+    linear-gradient(180deg, var(--navy) 0%, var(--void) 60%);
+  background-attachment: fixed;
+}
+.wrap { max-width: 1040px; margin: 0 auto; padding: 46px 18px 80px }
+
+/* gold frame: thin gold border plus a faint inner line (table, match cards, info box) */
+.frame { position: relative; background: linear-gradient(180deg, rgba(15,29,54,.92), rgba(1,10,19,.92)); border: 1px solid var(--gold3) }
+.frame::before { content: ""; position: absolute; inset: 3px; border: 1px solid rgba(200,170,110,.18); pointer-events: none }
+
+/* section heading row ("Gold League", "Matches") */
+.bar { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; flex-wrap: wrap; margin: 40px 2px 14px; padding-bottom: 10px; border-bottom: 1px solid var(--gold3) }
+h2 { font: 700 26px/1 var(--disp); letter-spacing: .08em; text-transform: uppercase; color: var(--gold2) }
+h2 .livetag { margin-left: 10px; vertical-align: 5px }
+.ctrl { display: flex; align-items: center; gap: 16px; font: 500 14px var(--cond); letter-spacing: .06em; color: var(--mut) }
+.ctrl label { display: flex; align-items: center; gap: 7px; cursor: pointer }
+.ctrl input { width: 16px; height: 16px; accent-color: var(--gold) }
+
+/* "Live" marker */
+.livetag { display: inline-flex; align-items: center; gap: 5px; font: 700 11px/1 var(--cond); font-style: normal; letter-spacing: .18em; text-transform: uppercase; color: var(--teal) }
+.livetag::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--teal); animation: ping 1.6s infinite }
+@keyframes ping { 50% { opacity: .35 } }
+
+/* messages (empty division, loading errors) */
+.note { margin: 26px 0 14px; border: 1px solid var(--gold3); border-left: 3px solid var(--gold); background: rgba(15,29,54,.7); padding: 10px 14px; font-size: 14px; color: var(--gold2) }
+.note.bad { border-left-color: var(--red) }
+
+/* rules box and footer */
+.rules { margin-top: 40px; padding: 18px 22px; font-size: 15px; color: var(--mut) }
+.rules p + p { margin-top: 8px }
+.rules b { color: var(--gold2); font-weight: 600 }
+footer { margin-top: 26px; text-align: center; font: 600 12px var(--cond); letter-spacing: .24em; text-transform: uppercase; color: #5b5a56 }
+
+input:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px }
+@media (prefers-reduced-motion: reduce) { .livetag::before { animation: none } }

@@ -1,0 +1,63 @@
+/* ==========================================================================
+   Standings – league table
+   ========================================================================== */
+
+.scroll { overflow-x: auto }
+table { width: 100%; border-collapse: collapse; min-width: 600px }
+
+/* th = heading cell (column titles), td = data cell */
+th { font: 600 12px var(--cond); letter-spacing: .18em; text-transform: uppercase; color: var(--gold); padding: 14px 8px 10px; text-align: center; border-bottom: 1px solid var(--gold3) }
+td { padding: 11px 8px; text-align: center; font: 600 18px var(--cond); border-top: 1px solid var(--line) }
+th.l, td.l { text-align: left }
+tbody tr:first-child td { border-top: 0 }
+tbody tr { transition: background .15s }
+tbody tr:hover { background: rgba(200,170,110,.06) }
+
+/* rank column */
+td.rk { width: 64px; font: 700 18px var(--disp); color: var(--mut); white-space: nowrap; padding-left: 20px; text-align: left }
+.mv { font-size: 9px; margin-left: 4px; vertical-align: 3px }
+.mv.up { color: var(--teal) } .mv.dn { color: var(--red) }
+
+/* team column */
+td.team { display: flex; align-items: center; gap: 12px; min-width: 230px; font: 600 18px var(--body) }
+td.team .lg { width: 38px; height: 38px; object-fit: contain; flex-shrink: 0 }
+td.team .ph { width: 38px; height: 38px; border: 1px solid var(--gold3); background: var(--navy); transform: rotate(45deg) scale(.78); flex-shrink: 0 }
+button.nm, button.tn { all: unset; cursor: pointer; font: inherit; color: inherit; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+button.nm:hover, button.tn:hover { color: var(--gold) }
+button.nm:focus-visible, button.tn:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px }
+
+/* number columns */
+td.pts, th.pts { color: var(--bright) }
+td.pts { font: 700 22px var(--disp) }
+td.dim { color: var(--mut); font-size: 16px }
+
+/* last 5 results */
+.form { display: inline-flex; gap: 3px }
+.form i { width: 22px; height: 22px; display: grid; place-items: center; font: 700 11px var(--cond); font-style: normal; border: 1px solid var(--line); color: var(--mut) }
+.form .fW { background: rgba(10,200,185,.16); border-color: var(--teal2); color: var(--teal) }
+.form .fD { background: rgba(160,155,140,.14); border-color: #5b5a56; color: var(--gold2) }
+.form .fL { background: rgba(232,64,87,.14); border-color: #8c2635; color: #ff7a8c }
+
+/* zones: prize (gold), promotion (teal), relegation (red); live rows */
+tr.z-prize td.rk { color: var(--gold) }  tr.z-prize td:first-child { box-shadow: inset 3px 0 0 var(--gold) }
+tr.z-up td.rk    { color: var(--teal) }  tr.z-up td:first-child    { box-shadow: inset 3px 0 0 var(--teal) }
+tr.z-down td.rk  { color: var(--red) }   tr.z-down td:first-child  { box-shadow: inset 3px 0 0 var(--red) }
+tr.z-down { background: rgba(232,64,87,.05) }
+tr.inlive { background: rgba(10,200,185,.06) }
+
+/* legend under the table */
+.legend { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 12px 2px 0; font: 500 14px var(--cond); letter-spacing: .06em; color: var(--mut) }
+.legend span { display: flex; align-items: center; gap: 8px }
+.legend span::before { content: ""; width: 12px; height: 12px; border: 1px solid }
+.lg-prize::before { background: var(--gold); border-color: var(--gold) }
+.lg-up::before    { background: var(--teal); border-color: var(--teal) }
+.lg-down::before  { background: var(--red);  border-color: var(--red) }
+
+/* phones: only #, team, P, +/−, Pts */
+@media (max-width: 640px) {
+  .opt, .wdl { display: none }
+  table { min-width: 0 }
+  td.team { min-width: 0; font-size: 16px }
+  td.rk { padding-left: 12px; width: 48px }
+}
+@media (prefers-reduced-motion: reduce) { tbody tr { transition: none } }

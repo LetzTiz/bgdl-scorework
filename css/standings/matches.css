@@ -1,0 +1,32 @@
+/* ==========================================================================
+   Standings – match days and match cards
+   ========================================================================== */
+
+/* match day buttons */
+.days { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 18px }
+.day { font: 700 15px/1 var(--disp); min-width: 42px; height: 42px; padding: 0 8px; cursor: pointer; color: var(--mut); background: var(--navy); border: 1px solid var(--line);
+       clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px) }
+.day.fin { color: var(--gold2) }
+.day:hover { border-color: var(--gold3); color: var(--gold2) }
+.day.lvd { border-color: var(--teal2); color: var(--teal) }
+.day.on { background: linear-gradient(180deg, #e9d39b, var(--gold) 60%, #a3843f); border-color: var(--gold); color: var(--void) }
+.day:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px }
+
+h3 { font: 700 20px var(--disp); letter-spacing: .06em; text-transform: uppercase; color: var(--gold2); margin: 0 0 14px; display: flex; align-items: baseline; gap: 12px }
+h3 small { font: 500 14px var(--cond); letter-spacing: .12em; color: var(--mut) }
+
+/* cards */
+ul.matches { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px }
+.match .mh { display: flex; justify-content: space-between; gap: 8px; padding: 8px 12px 6px; font: 600 11px var(--cond); letter-spacing: .2em; text-transform: uppercase; color: var(--mut); border-bottom: 1px solid var(--line) }
+.match .mh .lvls { letter-spacing: .06em; text-transform: none; font-size: 13px; color: var(--gold); white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+.match .mr { display: grid; grid-template-columns: 30px 1fr auto; align-items: center; gap: 10px; padding: 9px 12px }
+.match .mr:not(:has(img)) { grid-template-columns: 1fr auto }
+.match .mr + .mr { border-top: 1px solid var(--line) }
+.match .mr img { width: 30px; height: 30px; object-fit: contain }
+.match .mr .tn { font: 600 17px var(--body) }
+.match .mr .ms { font: 700 22px var(--disp); min-width: 34px; text-align: right; color: var(--gold2) }
+.match .mr.win .tn { color: #fff }
+.match .mr.win .ms { color: var(--bright) }
+.match .mr.lose .tn, .match .mr.lose .ms { color: #6c6a62 }
+.match.live { border-color: var(--teal2) }
+.match.up .ms { color: #4a5568 }

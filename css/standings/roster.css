@@ -1,0 +1,23 @@
+/* ==========================================================================
+   Standings – roster window
+   ========================================================================== */
+
+dialog#roster { margin: auto; width: min(560px, calc(100% - 32px)); max-height: 80vh; overflow: auto; color: var(--txt);
+                background: linear-gradient(180deg, var(--navy2), var(--void)); border: 1px solid var(--gold3); padding: 0 }
+dialog#roster::backdrop { background: rgba(1,10,19,.78) }
+
+/* head: logo, team name, captain + division, close button */
+.rhead { display: flex; align-items: center; gap: 20px; padding: 22px 22px 18px; border-bottom: 1px solid var(--gold3) }
+.rhead #rLogo { flex-shrink: 0; display: grid; place-items: center; width: 112px; height: 112px }
+.rhead .big { max-width: 112px; max-height: 112px; width: auto; height: auto; object-fit: contain }
+.rhead h2 { font-size: 24px }
+.rhead p { font: 500 14px var(--cond); letter-spacing: .06em; color: var(--mut); margin-top: 4px; white-space: pre }
+.rhead .close { margin-left: auto; align-self: flex-start; background: none; border: 1px solid var(--gold3); color: var(--gold); width: 34px; height: 34px; cursor: pointer; font-size: 14px }
+.rhead .close:hover { color: var(--gold2); border-color: var(--gold) }
+
+/* player list */
+#rBody { padding: 8px 10px 16px }
+table.rt { min-width: 0 }
+table.rt td { font: 600 17px var(--body) }
+table.rt td.dim { font-size: 15px }
+.rempty { padding: 16px 12px; color: var(--mut) }

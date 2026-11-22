@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beans GD League – Standings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/standings/base.css">
+<link rel="stylesheet" href="css/standings/header.css">
+<link rel="stylesheet" href="css/standings/table.css">
+<link rel="stylesheet" href="css/standings/matches.css">
+<link rel="stylesheet" href="css/standings/roster.css">
+</head>
+<body>
+<div class="wrap">
+
+  <!-- title -->
+  <header>
+    <h1 id="league"></h1>
+    <div class="season"><span class="diamond"></span><span id="season"></span><span class="diamond"></span></div>
+  </header>
+
+  <!-- Gold / Silver switch -->
+  <nav class="divs" id="divs" aria-label="Division"></nav>
+
+  <!-- league table -->
+  <div class="bar">
+    <h2><span id="tblTitle"></span> <em class="livetag" id="liveTag" hidden>Live</em></h2>
+    <div class="ctrl"><span id="updated"></span><label><input type="checkbox" id="incLive" checked> Count live matches</label></div>
+  </div>
+  <p class="note" id="empty" hidden></p>
+  <div id="tblWrap">
+    <div class="frame"><div class="scroll"><table id="tbl"></table></div></div>
+    <div class="legend" id="legend"></div>
+  </div>
+
+  <!-- matches -->
+  <div id="matchWrap">
+    <div class="bar"><h2>Matches</h2></div>
+    <div class="days" id="days" aria-label="Match day"></div>
+    <h3 id="dayTitle"></h3>
+    <ul class="matches" id="weeks"></ul>
+  </div>
+
+  <!-- rules -->
+  <div class="rules frame">
+    <p><b>Points.</b> A win is worth 3 league points, a draw 1, a loss 0. The match score is the placement points from both rounds: 5 for 1st, 3 for 2nd, 2 for 3rd, 0 for 4th.</p>
+    <p><b>Tiebreakers.</b> Points difference first, then points scored.</p>
+    <p><b>Promotion and relegation.</b> The top 2 of the Gold League win a prize. The bottom 2 of the Gold League go down to the Silver League, and the top 2 of the Silver League go up.</p>
+    <p><b>Live matches</b> count with their current score. Untick “Count live matches” to see the table without them.</p>
+  </div>
+
+  <div id="notice"></div>
+  <footer id="foot"></footer>
+
+  <!-- roster window (opens when a team name is clicked) -->
+  <dialog id="roster" aria-labelledby="rTitle">
+    <div class="rhead">
+      <span id="rLogo"></span>
+      <div><h2 id="rTitle"></h2><p id="rMeta"></p></div>
+      <button class="close" id="rClose" aria-label="Close">✕</button>
+    </div>
+    <div id="rBody"></div>
+  </dialog>
+</div>
+
+<!-- settings, shared sheet code, then the parts of this page (order matters) -->
+<script src="config.js"></script>
+<script src="js/sheet.js"></script>
+<script src="js/standings/state.js"></script>
+<script src="js/standings/teams.js"></script>
+<script src="js/standings/logos.js"></script>
+<script src="js/standings/table.js"></script>
+<script src="js/standings/matches.js"></script>
+<script src="js/standings/roster.js"></script>
+<script src="js/standings/main.js"></script>
+</body>
+</html>
