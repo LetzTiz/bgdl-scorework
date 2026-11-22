@@ -32,10 +32,7 @@ const CONFIG = {
   // How often the page reloads the sheet
   refreshSeconds: 60,
 
-  // Team logos. Google Sheets does not export pictures placed inside cells. Either
-  //  a) put the logo link as text in a "Logo URL" column of the Teams tab
-  //     (Google Drive links work if the file is shared as "Anyone with the link"), or
-  //  b) put image files in this folder, named like the team in lower case with dashes:
+  // Team logos. Google Sheets does not export pictures placed inside cells. put image files in this folder, named like the team in lower case with dashes:
   //     "Requiem Aeternam" -> logos/requiem-aeternam.png
   logoFolder: 'logos/',
 };
